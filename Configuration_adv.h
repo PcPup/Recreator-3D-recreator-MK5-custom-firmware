@@ -1,7 +1,4 @@
 #pragma once
-
-#define CONFIG_EXAMPLES_DIR "Creality/Ender-3/CrealityV422"
-
 #define CONFIGURATION_ADV_H_VERSION 02010206
 #define DISABLE_X true
 #define DISABLE_Y true
@@ -47,9 +44,7 @@
 #define HOMING_BUMP_MM      { 5, 5, 2 }      
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       
 
-
 #define AXIS_RELATIVE_MODES { false, false, false, false }
-
 
 #define DEFAULT_STEPPER_TIMEOUT_SEC 120
 #define DISABLE_IDLE_X
@@ -80,49 +75,32 @@
     #define ULTIPANEL_FEEDMULTIPLY  
   #endif
 #endif
-
-// Change values more rapidly when the encoder is rotated faster
 #define ENCODER_RATE_MULTIPLIER
 #if ENABLED(ENCODER_RATE_MULTIPLIER)
   #define ENCODER_10X_STEPS_PER_SEC   30  // (steps/s) Encoder rate for 10x speed
   #define ENCODER_100X_STEPS_PER_SEC  80  // (steps/s) Encoder rate for 100x speed
 #endif
-
-
-  // Include a page of printer information in the LCD Main Menu
   #define LCD_INFO_MENU
   #if ENABLED(LCD_INFO_MENU)
-    //#define LCD_PRINTER_INFO_IS_BOOTSCREEN // Show bootscreen(s) instead of Printer Info pages
   #endif
-
-
-
-
 #if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
   #define SOUND_ON_DEFAULT    
 #endif
-
 #if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
-  // The timeout to return to the status screen from sub-menus
-  #define LCD_TIMEOUT_TO_STATUS 60000     // (ms)
-
+  #define LCD_TIMEOUT_TO_STATUS 30000     // (ms)
   #if ENABLED(SHOW_BOOTSCREEN)
     #define BOOTSCREEN_TIMEOUT 3000       // (ms) Total Duration to display the boot screen(s)
     #if EITHER(HAS_MARLINUI_U8GLIB, TFT_COLOR_UI)
       #define BOOT_MARLIN_LOGO_SMALL      // Show a smaller Marlin logo on the Boot Screen (saving lots of flash)
     #endif
   #endif
-
-  // Scroll a longer status message into view
   #define STATUS_MESSAGE_SCROLLING
 #endif 
 #if HAS_DISPLAY && EITHER(SDSUPPORT, SET_PROGRESS_MANUALLY)
   #define SHOW_PROGRESS_PERCENT          
   #define SHOW_ELAPSED_TIME               
 #endif
-
 #if ENABLED(SDSUPPORT)
-        
   #define SDCARD_READONLY                   
   #define SD_PROCEDURE_DEPTH 1             
   #define SD_FINISHED_STEPPERRELEASE true   
@@ -133,7 +111,6 @@
   #define SCROLL_LONG_FILENAMES          
 #endif 
 #if HAS_MARLINUI_U8GLIB
-  //#define XYZ_HOLLOW_FRAME
   #define STATUS_HOTEND_INVERTED      
   #define STATUS_HOTEND_ANIM           
 #endif 
@@ -147,7 +124,6 @@
 #define USE_WATCHDOG
 #if ENABLED(USE_WATCHDOG)
 #endif
-
 #define ARC_SUPPORT                   
 #if ENABLED(ARC_SUPPORT)
   #define MIN_ARC_SEGMENT_MM      0.1 
@@ -155,10 +131,8 @@
   #define MIN_CIRCLE_SEGMENTS    72   
   #define N_ARC_CORRECTION       25   
 #endif
-
 #if EITHER(ARC_SUPPORT, BEZIER_CURVE_SUPPORT)
 #endif
-
 #define MIN_STEPS_PER_SEGMENT 6
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
   #define BLOCK_BUFFER_SIZE  8
@@ -167,24 +141,14 @@
 #else
   #define BLOCK_BUFFER_SIZE 16
 #endif
-
 #define MAX_CMD_SIZE 96
 #define BUFSIZE 4
-
-
 #define TX_BUFFER_SIZE 0
-
 #define SERIAL_OVERRUN_PROTECTION
-
-
 #define PROPORTIONAL_FONT_RATIO 1.0
-
 #define AUTO_REPORT_TEMPERATURES
-
-
 #define EXTENDED_CAPABILITIES_REPORT
 #if ENABLED(EXTENDED_CAPABILITIES_REPORT)
-
 #endif
 
 #define FASTER_GCODE_PARSER
